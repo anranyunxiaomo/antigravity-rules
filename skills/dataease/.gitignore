@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Output files
+output/
+
+# Environment (contains secrets)
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
