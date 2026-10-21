@@ -2,12 +2,19 @@
 set -e
 GEMINI_DIR="$HOME/.gemini"
 TARGET_FILE="$GEMINI_DIR/GEMINI.md"
+SKILL_TARGET_DIR="$GEMINI_DIR/config/skills/codebase-memory"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_FILE="$SCRIPT_DIR/GEMINI.md"
+SKILL_SOURCE_FILE="$SCRIPT_DIR/skills/codebase-memory/SKILL.md"
 
-mkdir -p "$GEMINI_DIR"
+mkdir -p "$GEMINI_DIR" "$SKILL_TARGET_DIR"
 cp -f "$SOURCE_FILE" "$TARGET_FILE"
 echo "✅ Antigravity 全局规则已成功写入: $TARGET_FILE"
+
+if [ -f "$SKILL_SOURCE_FILE" ]; then
+  cp -f "$SKILL_SOURCE_FILE" "$SKILL_TARGET_DIR/SKILL.md"
+  echo "✅ codebase-memory 技能已同步挂载: $SKILL_TARGET_DIR/SKILL.md"
+fi
 
 if [ ! -f "$HOME/.local/bin/codebase-memory-mcp" ]; then
   echo "⏳ 正在静默安装 codebase-memory-mcp 知识图谱组件..."
@@ -15,6 +22,10 @@ if [ ! -f "$HOME/.local/bin/codebase-memory-mcp" ]; then
 else
   echo "🔄 正在幂等校验 codebase-memory-mcp 客户端配置挂载..."
   "$HOME/.local/bin/codebase-memory-mcp" install -y
+fi
+
+if [ -f "$HOME/.agents/skills/codebase-memory/SKILL.md" ]; then
+  cp -f "$HOME/.agents/skills/codebase-memory/SKILL.md" "$SKILL_TARGET_DIR/SKILL.md"
 fi
 
 echo "👉 重新打开 Antigravity 或开启新对话即刻生效！"
