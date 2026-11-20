@@ -34,5 +34,5 @@ cd "$HOME\.gemini\antigravity-rules"; git pull; .\install.ps1
 
 ## 📦 包含组件说明
 - **`GEMINI.md`**：全局 AI 研发核心宪法（已针对 Antigravity `<user_rules>` 24KB 注入阈值优化，100% 零截断完整加载）。
-- **`skills/`**：精选 9 个核心高阶技能（架构基建：`codebase-memory`、`caveman`、`clone-website`、`dataease`；界面审美：`finesse-ui`、`unslop`、`web-design-guidelines`；交互动效：`apple-design`、`emil-design-eng`），随脚本一键同步至 `~/.gemini/config/skills/`。
-- **`install.sh` / `install.ps1`**：全自动非交互式安装脚本，完成 `~/.gemini/GEMINI.md` 写入、9 个核心 Skills 同步及 `codebase-memory-mcp` 二进制安装与 Antigravity `mcp_config.json` 幂等挂载。
+- **`skills/`**：精选 11 个核心高阶技能（架构基建：`codebase-memory`、`caveman`、`clone-website`、`dataease`；界面审美：`finesse-ui`、`unslop`、`frontend-design`、`shadcn`、`web-design-guidelines`；交互动效：`apple-design`、`emil-design-eng`），随脚本一键同步至 `~/.gemini/config/skills/`。
+- **`install.sh` / `install.ps1`**：全自动非交互式安装脚本，完成 `~/.gemini/GEMINI.md` 写入、11 个核心 Skills 同步及 `codebase-memory-mcp` 二进制安装与 Antigravity `mcp_config.json` 幂等挂载。
