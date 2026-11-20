@@ -2,6 +2,8 @@
 
 > **When loaded by the `animate` command** (you're adding or re-cutting motion on a page that already stands): change the **beats**, not the soul or the substrate. Re-run §0's gate and §4's budget, then check the page still reads with every animation stripped. A full build (`craft`) reads this whenever the brief mentions motion, "炫酷", "动效", or the page is `brand` register.
 
+> **First, check you're in the right file.** This one covers motion the viewer **watches** — the page moves on a timeline you authored. Motion the viewer **causes** — a finger is down and every frame until it lifts is a negotiation (sheets, drags, detents, swipe-back, pull-to-refresh, FLIP from a tapped card) — is a different discipline with different failure modes, and it lives in **`interaction-motion.md`**. The test: *is this beat driven by `pointerdown/move/up`, or is it the interface answering a tap?* If so, go there. A page usually needs both files.
+
 Motion decisions have **two axes**, and conflating them is why AI pages all move the same way:
 
 | Axis | The question | Where it's answered |

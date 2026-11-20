@@ -1,5 +1,7 @@
 # The Cheapness Blacklist — Anti-Slop
 
+> **Apple language override:** when `design-language=apple`, load `apple-design.md` first. Its scoped rules allow deliberate black/white surfaces, clean editorial substrates without grain/vignette, content-weighted Bento and functional translucent chrome. Use its typography ranges; do not force an unrelated persona or engine. All functional, contrast and accessibility requirements remain in effect.
+
 Merged from production-tested AI tells, absolute design bans, and training-data reflex-reject lists. These are what make AI-generated pages instantly recognizable as cheap. Scan against this list before shipping. Each entry: the tell → what to do instead.
 
 > Philosophy: most of these are *defaults the model reaches for without thinking*. The fix is almost never "add more" — it's "name the reflex, reject it, commit to an intentional choice."

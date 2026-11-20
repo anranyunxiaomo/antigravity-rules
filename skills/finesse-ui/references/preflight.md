@@ -57,9 +57,11 @@ node "$DETECT" --json <every built file>
 - [ ] **Build recorded** — the five-axis stamp is the first non-empty line of the CSS, and an entry was prepended to `.finesse/log.json` (trimmed to 20). *An unrecorded build is one the next run collides with.* Component-scope builds skip both by design.
 - [ ] **One soul, one accent, locked** across every section. No drift, no second accent unless duotone-by-design.
 - [ ] **Theme locked** — no warm-paper section inside a dark page (unless deliberate one-time switch).
-- [ ] Page matches its **register** (brand = bold/spectacle; if it's really product-UI, finesse is the wrong tool).
+- [ ] Page matches its **register** and selected design language; product UI uses its own substrate.
 
 ## B. Premium Substrate (hard)
+
+**Scope first:** product uses `product-ui.md` §0; it does not inherit brand grain/vignette/display-type gates. Apple language uses `apple-design.md` overrides and the Apple gates below instead of conflicting aesthetic checks. Preserve a requested design language and project consistency over rotation quotas.
 
 - [ ] **Grain** layer present (`opacity .02–.05`).
 - [ ] **No pure `#fff`/`#000`**; neutrals tinted toward brand hue.
@@ -196,3 +198,16 @@ Generate 5 sharp questions about your specific output, then answer each with con
 5. **Dial honesty:** "Is the page I built actually `SPECTACLE=[n]` and `DENSITY=[n]`, or did I under-deliver on what I committed to?" → [evidence]
 
 **A "yes" with no evidence = unverified = fail.** Re-read the output, quote the specific line or value that proves it.
+
+
+## Apple language gates (only when selected)
+
+- [ ] Register and editorial/app/spatial mode match the brief. A plain Apple request did not automatically add glass, Bento or a hero engine.
+- [ ] Surface tokens and readable dark/light relationships are deliberate. Pure black/white is permitted, not a contrast exemption.
+- [ ] Card size follows information weight; mobile reading order remains logical. Check 320, 375, 414 and 768px, long labels and 200% text zoom.
+- [ ] Keyboard navigation, visible focus, accessible names, Escape and focus return work. Drag has a non-drag alternative; touch targets meet the existing 44px floor.
+- [ ] For gestures: re-grab a moving panel, reverse it, release slowly and quickly, cancel it, and test scrolling near it. There is no position jump, locked input or stuck intermediate state.
+- [ ] Reduced motion removes autoplay/overshoot while preserving usable terminal states. Reduced transparency produces opaque material; increased contrast produces clear boundaries where materials are used.
+- [ ] Gallery playback can pause; hidden duplicates are not focusable; details pause playback and restore focus.
+- [ ] All relative dependencies travel with the example; no machine-specific paths or private metadata are included. Sample facts remain labeled as demonstrations.
+- [ ] Detector findings were reviewed. An Apple stamp only changes the pure-black/white aesthetic hint, not functional or accessibility checks. Static checks do not prove gesture quality or visual fit; report runtime checks separately.

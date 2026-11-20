@@ -1,5 +1,7 @@
 # Divergence — Why Every Page Comes Out the Same, and the Machine That Fixes It
 
+> **Apple language override:** when `design-language=apple`, load `apple-design.md` first. Its scoped rules allow deliberate black/white surfaces, clean editorial substrates without grain/vignette, content-weighted Bento and functional translucent chrome. Use its typography ranges; do not force an unrelated persona or engine. All functional, contrast and accessibility requirements remain in effect.
+
 The most common complaint about AI-built interfaces is not that they're ugly. It's that they're **all the same page**. Same hero, same three-column card grid, same eyebrow above every headline, same accent. finesse has an anti-cheap blacklist that raises the *floor* — but a floor does not create *variety*. Negative constraints stop bad pages; they do not produce different ones.
 
 This file is the positive half: a **divergence machine** that makes two briefs produce two visually unrelated pages, by construction rather than by hope.

@@ -36,6 +36,7 @@ const NOT_COVERED = [
   'layout-family repetition (§5) and whether the soul is actually distinct',
   'whether the engine RENDERS real pixels (needs the Playwright runtime pass, not a grep)',
   'mobile-floor M3/M4 — clickable text wrapping to two lines, long-word overflow at 320px (needs a rendered page at 320, not a grep)',
+  'HTML fragments constructed in JavaScript: URLs resolve against the consuming document, so verify them in the browser',
   'root-relative asset paths (`/img/x.png`) — dead-ref only resolves file-relative ones; a broken `/…` link needs the real serving root',
 ];
 
@@ -415,6 +416,9 @@ function inlineColorCheck(text) {
 // the CSS did, and nothing downstream noticed. P0, always.
 const SKIP_REF = /^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i; // http:, data:, mailto:, tel:, //cdn, #anchor
 function deadLocalRefCheck(text, file) {
+  // JS template fragments resolve URLs against their consuming document, not
+  // this script's directory. Static HTML/CSS checks remain unchanged.
+  if (/\.(?:[cm]?js|jsx|tsx?)$/i.test(file)) return null;
   const base = dirname(resolve(file));
   const hits = [];
   const seen = new Set();
@@ -475,7 +479,12 @@ for (const file of files) {
   }
 
   const findings = [];
+  // Only the explicit leading finesse CSS stamp grants this aesthetic exception.
+  // Content mentioning Apple, or another file in the same directory, does not.
+  const appleLanguage = /^\s*\/\*\s*finesse\s*[·|](?:(?!\*\/)[\s\S])*?\bdesign-language=apple\b(?:(?!\*\/)[\s\S])*?\*\//i.test(text)
+    || /<style\b[^>]*>\s*\/\*\s*finesse\s*[·|](?:(?!\*\/)[\s\S])*?\bdesign-language=apple\b(?:(?!\*\/)[\s\S])*?\*\//i.test(text);
   for (const rule of RULES) {
+    if (rule.id === 'pure-bw' && appleLanguage) continue;
     const hits = rule.find(text);
     if (hits.length) {
       findings.push({ id: rule.id, severity: rule.severity, label: rule.label, fix: rule.fix, count: hits.length, hits: hits.slice(0, 8) });

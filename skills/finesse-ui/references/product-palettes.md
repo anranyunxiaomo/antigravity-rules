@@ -1,5 +1,7 @@
 # Product Palettes — Neutrals, Accents, and Ready-to-Paste Sets
 
+> **Apple language override:** when `design-language=apple`, load `apple-design.md` first. Its scoped rules allow deliberate black/white surfaces, clean editorial substrates without grain/vignette, content-weighted Bento and functional translucent chrome. Use its typography ranges; do not force an unrelated persona or engine. All functional, contrast and accessibility requirements remain in effect.
+
 The **product register**'s color library. `design-dna.md` §6 is a *soul → color* map for **brand** pages: a background and an accent, which is all a brand page needs. A dashboard, console, or SaaS app needs more — a **tinted neutral ramp** (which is 80% of the pixels), an accent that survives both light and dark, a soft tint for chips and focus rings, and semantic up/down kept **separate** from the brand.
 
 Four layers, in the order you actually build them:

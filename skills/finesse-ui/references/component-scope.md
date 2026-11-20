@@ -1,5 +1,7 @@
 # Component Scope — when the brief is one element, not a page
 
+> For an Apple-style component, also load `apple-design.md`; keep this component workflow and the existing project tokens. Do not start a full page, rotate the style, or add a hero engine.
+
 Most day-to-day requests are component-shaped, not page-shaped. "Make me a button." "This input looks cheap." "Build a toast." Running the full page flow on those is wrong in both directions: it spends a Brand Read, a skeleton pick, and an engine decision on something that has no hero and no sections — **and** it never checks the one thing that actually determines whether a component is well-made, which is whether every state was shipped.
 
 This file is the alternate route.

@@ -1,5 +1,7 @@
 # H5 — Pages That Only Ever Live on a Phone
 
+> **Apple language override:** when `design-language=apple`, load `apple-design.md` first. Its scoped rules allow deliberate black/white surfaces, clean editorial substrates without grain/vignette, content-weighted Bento and functional translucent chrome. Use its typography ranges; do not force an unrelated persona or engine. All functional, contrast and accessibility requirements remain in effect.
+
 The **fourth register.** `brand` / `product` / `commerce` all describe pages that are *primarily* desktop and *also* have to survive a phone. This file is the inverse: pages where the phone **is** the target, the desktop is the degraded case, and the viewport is a **fixed 390×844 rectangle** rather than a range to be responsive across.
 
 That inversion changes almost every mechanical decision, which is why it can't be a section inside `product-ui.md`:
@@ -183,6 +185,8 @@ The `margin`/`padding` mirror is the whole trick: content still aligns with the 
 
 ## 3. Touch — the rules that have no desktop equivalent
 
+> **This section is the floor, not the whole subject.** It covers what every tappable thing needs. The moment something is *draggable* — a sheet, a swipe row, a picker, a detented panel, a swipe-back — you are handling input you did not predict (speed, direction, threshold, dropped frames), and that is **`interaction-motion.md`**: 1:1 tracking, damping past the edge, **windowed** velocity, dual-condition commit, snapping. Rules 4–7 below are that file's §2 in miniature.
+
 1. **`-webkit-tap-highlight-color: transparent` in the `*` reset.** Not optional. The default is a grey/blue flash on every tap that instantly reads as "web page in a webview".
 2. **Hover does not exist. `:active` is your only free feedback.** Every tappable thing gets one: `:active { transform: scale(.96) }` or `filter: brightness(.9)`, `transition ≤ .2s`. A button with no pressed state feels dead on a phone in a way it never does under a cursor.
 3. **44×44px minimum, and it's a *hit* target, not a *visual* one.** A 21px icon lives inside a 46px button. Pad, don't grow.
@@ -365,6 +369,8 @@ These six components are what make the page read as an app. Build them from thes
 `102%` is deliberate: at exactly `100%` a box-shadow or a 1px border still peeks along the bottom edge. Always ship the **grab handle** (`42×4px`, `border-radius: 99px`, 14% ink) — it's how users know it's draggable/dismissible even before they try. The scrim must be tappable to dismiss.
 
 On a dark page the sheet is usually **light** (`#fbfbfc`) — a deliberate inversion that reads as a system surface, and it doesn't violate the color lock because it's OS furniture, not brand surface.
+
+> **The above is what a sheet *looks like* — an `.on` switch. What it *does* after it opens is `interaction-motion.md` §3**, and that is where sheets are actually judged: it has an **origin** (bottom-triggered → rises from the bottom; centre-scaled is a modal, a different thing), a **layer** (the page behind must recede — `scale(.94) + blur(2.4px)` — because dimming alone reads as *disabled*, not *behind*), a **controller** (draggable back, dismissed on distance **OR** velocity), **detents** (snap to the nearest, never park between), and a **destination** (expanding to full screen is one progress driving four properties). Ten of them, all draggable, run in `../examples/h5-sheet-lab.html`.
 
 ### 5.B TabBar
 
